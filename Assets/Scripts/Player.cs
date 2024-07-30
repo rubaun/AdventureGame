@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -18,11 +19,15 @@ public class Player : MonoBehaviour
     public int vidas = 3;
     public bool comVida = true;
     public string tipo;
+    public Vector3 startPosition;
+    private bool start;
     
     
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+        start = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
@@ -40,6 +45,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "Fase1" && start)
+        {
+            startPosition = GameObject.FindWithTag("Start").transform.position;
+            transform.position = startPosition;
+            start = false;
+        }
         //Animação Andar
         if(Input.GetKey(KeyCode.D) && moveH > 0)
         {

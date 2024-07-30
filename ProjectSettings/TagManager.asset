@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - "Ch\xE3o"
+  - SaidaPersonagem
+  - Start
+  - Morte
   layers:
   - Default
   - TransparentFX

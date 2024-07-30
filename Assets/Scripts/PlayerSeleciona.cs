@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerSeleciona : MonoBehaviour
@@ -59,6 +60,14 @@ public class PlayerSeleciona : MonoBehaviour
     {
         seleciona = true;
         select.SelecionaMouseDown(tipo);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("SaidaPersonagem"))
+        {
+            SceneManager.LoadScene("Fase1");
+        }
     }
 
 }

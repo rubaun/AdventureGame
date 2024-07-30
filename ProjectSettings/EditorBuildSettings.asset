@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuPrincipal.unity
     guid: 29a80bd6099e40047af78a2c6e95a4fa
   - enabled: 1
+    path: Assets/Scenes/SelectPersonagem.unity
+    guid: 2596862d905132c4aaa084d0da17fb84
+  - enabled: 1
     path: Assets/Scenes/Fase1.unity
     guid: a1f2c7f1ddef0614ebfcc6d429280dee
   m_configObjects: {}

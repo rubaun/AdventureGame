@@ -7,6 +7,7 @@ public class FundoMove : MonoBehaviour
     public float speed = 0.01f;
     public float posX;
     public float posY;
+    public float limitX = -14.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class FundoMove : MonoBehaviour
     void Update()
     {
        
-        if(transform.position.x < -14.0f)
+        if(transform.position.x < limitX)
         {
             transform.position = new Vector3(posX, posY, 0);
         }

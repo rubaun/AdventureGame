@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelecionaPersonagem : MonoBehaviour
 {
+    public List<GameObject> players = new List<GameObject>();
     public GameObject Mask;
     private SpriteRenderer maskSprite;
     private Rigidbody2D maskRb;
@@ -74,7 +75,7 @@ public class SelecionaPersonagem : MonoBehaviour
 
     public void SelecionaMouseDown(string nome)
     {
-        if(nome == "Mask")
+        if(nome == "Mask") //posList 0
         {
             frogRb.simulated = false;
             pinkRb.simulated = false;
@@ -82,9 +83,10 @@ public class SelecionaPersonagem : MonoBehaviour
             frogCollider.enabled = false;
             pinkCollider.enabled = false;
             virtualCollider.enabled = false;
+            InstanciarPlayer(0);
         }
 
-        if(nome == "FrogNinja")
+        if(nome == "FrogNinja") //posList 1
         {
             maskRb.simulated = false;
             pinkRb.simulated = false;
@@ -92,9 +94,10 @@ public class SelecionaPersonagem : MonoBehaviour
             maskCollider.enabled = false;
             pinkCollider.enabled = false;
             virtualCollider.enabled = false;
+            InstanciarPlayer(1);
         }
 
-        if(nome == "Pink")
+        if(nome == "Pink") //posList 2
         {
             frogRb.simulated = false;
             maskRb.simulated = false;
@@ -102,9 +105,10 @@ public class SelecionaPersonagem : MonoBehaviour
             frogCollider.enabled = false;
             maskCollider.enabled = false;
             virtualCollider.enabled = false;
+            InstanciarPlayer(2);
         }
 
-        if(nome == "Virtual")
+        if(nome == "Virtual") //posList 3
         {
             frogRb.simulated = false;
             pinkRb.simulated = false;
@@ -112,6 +116,7 @@ public class SelecionaPersonagem : MonoBehaviour
             frogCollider.enabled = false;
             pinkCollider.enabled = false;
             maskCollider.enabled = false;
+            InstanciarPlayer(3);
         }
     }
 
@@ -121,5 +126,10 @@ public class SelecionaPersonagem : MonoBehaviour
         frogSprite.color = Color.white;
         pinkSprite.color = Color.white;
         virtualSprite.color = Color.white;
+    }
+
+    private void InstanciarPlayer(int posList)
+    {
+        Instantiate(players[posList], new Vector3(-10, -1.66f, 0), Quaternion.identity);
     }
 }

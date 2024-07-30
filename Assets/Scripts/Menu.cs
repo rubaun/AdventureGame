@@ -7,6 +7,6 @@ public class Menu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene("SelectPersonagem");
     }
 }
